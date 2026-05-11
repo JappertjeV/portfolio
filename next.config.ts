@@ -15,6 +15,7 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  serverExternalPackages: ["remark", "remark-html"],
   images: {
     remotePatterns: [
       {
