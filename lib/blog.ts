@@ -17,8 +17,12 @@ export interface BlogPost {
 }
 
 function ensureBlogDir() {
-  if (!fs.existsSync(BLOG_DIR)) {
-    fs.mkdirSync(BLOG_DIR, { recursive: true });
+  try {
+    if (!fs.existsSync(BLOG_DIR)) {
+      fs.mkdirSync(BLOG_DIR, { recursive: true });
+    }
+  } catch {
+    // read-only filesystem (e.g. Vercel) - directory must exist in the repo
   }
 }
 
